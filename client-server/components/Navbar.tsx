@@ -85,13 +85,13 @@ export default function Navbar() {
           </a>
 
           <Show when="signed-out">
-            <SignInButton mode="modal" forceRedirectUrl="/main">
+            <SignInButton mode="redirect" forceRedirectUrl="/main">
               <button className="font-medium text-[#212529] hover:text-[#007BFF]">
                 Sign in
               </button>
             </SignInButton>
 
-            <SignUpButton mode="modal" forceRedirectUrl="/main">
+            <SignUpButton mode="redirect" forceRedirectUrl="/main">
               <button className="rounded-sm bg-[#007BFF] px-6 py-2.5 font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0069d9] hover:shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
                 Sign up
               </button>
@@ -169,11 +169,11 @@ export default function Navbar() {
               Contact
             </a>
 
-            <SignInButton mode="modal" forceRedirectUrl="/main">
+            <SignInButton mode="redirect" forceRedirectUrl="/main">
               <button className="text-left py-2">Sign In</button>
             </SignInButton>
 
-            <SignUpButton mode="modal" forceRedirectUrl="/main">
+            <SignUpButton mode="redirect" forceRedirectUrl="/main">
               <button>Sign Up</button>
             </SignUpButton>
           </div>

@@ -116,6 +116,7 @@ export default function AppSidebar() {
                   },
                 }}
                 showName
+                signInUrl="/sign-in"
               />
             </div>
           </SidebarMenuItem>
