@@ -1,10 +1,15 @@
 import os
 from dotenv import load_dotenv
 from pymongo import MongoClient
+import certifi
 
 load_dotenv()
 
-mongo_client = MongoClient(os.getenv("MONGODB_URI"))
+mongo_client = MongoClient(
+    os.getenv("MONGODB_URI"),
+    tls=True,
+    tlsCAFile=certifi.where(),
+)
 db = mongo_client[os.getenv("MONGODB_DB", "trippilot")]
 
 conversations_collection = db["conversations"]
