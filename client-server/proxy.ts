@@ -1,4 +1,5 @@
 import { clerkMiddleware } from "@clerk/nextjs/server";
+import { NextResponse } from "next/server";
 
 // List every route that should be reachable WITHOUT signing in.
 // Everything else is treated as private and requires authentication.
@@ -16,13 +17,17 @@ function isPublicRoute(pathname: string) {
 
 export default clerkMiddleware(async function proxy(auth, req) {
   const { pathname } = req.nextUrl;
+  const { userId, redirectToSignIn } = await auth();
+
+  // Signed-in user hitting the landing page -> send them straight to the dashboard.
+  if (userId && pathname === "/") {
+    return NextResponse.redirect(new URL("/main", req.url));
+  }
 
   // Let public routes through untouched.
   if (isPublicRoute(pathname)) {
     return;
   }
-
-  const { userId, redirectToSignIn } = await auth();
 
   // No signed-in user trying to hit a private route -> bounce to sign-in.
   if (!userId) {
@@ -31,7 +36,6 @@ export default clerkMiddleware(async function proxy(auth, req) {
 
   // Signed-in user, private route -> let the request continue.
 });
-
 export const config = {
   matcher: [
     // Skip Next.js internals and static files, unless found in search params

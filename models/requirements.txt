@@ -1,5 +1,11 @@
 fastapi[all]
 uvicorn
-lang-graph
+langgraph
 langchain
-langchain_community 
+langchain_ollama 
+tavily-python
+pydantic
+python-dotenv
+langchain_tools
+requests
+pymongo
