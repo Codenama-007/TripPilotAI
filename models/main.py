@@ -16,6 +16,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",
+        "https://travelplanneer.netlify.app/"
         # "https://your-production-domain.com",
     ],
     allow_credentials=True,
