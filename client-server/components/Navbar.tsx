@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Show, SignUpButton} from "@clerk/nextjs";
+import { Show, SignUpButton, SignInButton } from "@clerk/nextjs";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -85,13 +85,18 @@ export default function Navbar() {
           </a>
 
           <Show when="signed-out">
-            <SignUpButton mode="redirect" forceRedirectUrl="/main">
+            <SignInButton mode="modal" forceRedirectUrl="/main">
+              <button className="font-medium text-[#212529] hover:text-[#007BFF]">
+                Sign in
+              </button>
+            </SignInButton>
+
+            <SignUpButton mode="modal" forceRedirectUrl="/main">
               <button className="rounded-sm bg-[#007BFF] px-6 py-2.5 font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0069d9] hover:shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
                 Sign up
               </button>
             </SignUpButton>
           </Show>
-          
 
         </div>
 
@@ -164,7 +169,11 @@ export default function Navbar() {
               Contact
             </a>
 
-            <SignUpButton mode="redirect" forceRedirectUrl="/main">
+            <SignInButton mode="modal" forceRedirectUrl="/main">
+              <button className="text-left py-2">Sign In</button>
+            </SignInButton>
+
+            <SignUpButton mode="modal" forceRedirectUrl="/main">
               <button>Sign Up</button>
             </SignUpButton>
           </div>

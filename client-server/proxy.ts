@@ -10,11 +10,11 @@ const PUBLIC_PATHS = [
 
 function isPublicRoute(pathname: string) {
   return PUBLIC_PATHS.some((path) =>
-    path === "/" ? pathname === "/" : pathname.startsWith(path)
+    path === "/" ? pathname === "/" : pathname === path || pathname.startsWith(path + "/")
   );
 }
 
-export default clerkMiddleware(async (auth, req) => {
+export default clerkMiddleware(async function proxy(auth, req) {
   const { pathname } = req.nextUrl;
 
   // Let public routes through untouched.
