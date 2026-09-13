@@ -1,0 +1,5 @@
+fastapi[all]
+uvicorn
+lang-graph
+langchain
+langchain_community 

@@ -1,0 +1,22 @@
+# Node / Next.js (client-server)
+client-server/node_modules/
+client-server/.next/
+client-server/out/
+client-server/.env
+client-server/.env.*
+client-server/next-env.d.ts
+client-server/*.tsbuildinfo
+
+# Python (models)
+models/venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
