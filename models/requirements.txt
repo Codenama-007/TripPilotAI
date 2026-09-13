@@ -2,10 +2,12 @@ fastapi[all]
 uvicorn
 langgraph
 langchain
-langchain_ollama 
+langchain_groq 
 tavily-python
 pydantic
 python-dotenv
 langchain_tools
 requests
-pymongo
+pymongo 
+langgraph-checkpoint-mongodb 
+--break-system-packages
