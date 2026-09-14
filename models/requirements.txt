@@ -1,7 +1,6 @@
 fastapi
 uvicorn[standard]
 langgraph
-langgraph-checkpoint-mongodb
 langchain-core
 langchain-groq
 tavily-python
