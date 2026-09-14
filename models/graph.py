@@ -1,6 +1,5 @@
-# from langgraph.checkpoint.memory import MemorySaver
+from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import StateGraph, START, END
-from langgraph.checkpoint.mongodb import MongoDBSaver
 from db import mongo_client
 from state import TravelState
 from routers import information_router, travel_mode_router
@@ -52,8 +51,7 @@ def build_graph():
     graph.add_edge("Final Agent", END)
     
     
-    checkpointer = MongoDBSaver(mongo_client)
-    return graph.compile(checkpointer=checkpointer) 
+    return graph.compile(checkpointer=MemorySaver())
 
 
     # return graph.compile(checkpointer=MemorySaver())
