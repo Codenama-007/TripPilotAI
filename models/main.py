@@ -16,7 +16,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",
-        "https://client-server-bay.vercel.app/"
+        "https://client-server-bay.vercel.app"
         # "https://your-production-domain.com",
     ],
     allow_credentials=True,
