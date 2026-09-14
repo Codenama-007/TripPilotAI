@@ -26,7 +26,7 @@ app.add_middleware(
 
 
 
-
+# This is for creating a new chat conversation
 @app.post("/conversations", response_model=ConversationOut)
 async def create_conversation(payload: NewConversationRequest):
 
@@ -50,7 +50,7 @@ async def create_conversation(payload: NewConversationRequest):
         updated_at=now,
     )
 
-
+# this part of the code is for getting all the conversation stored with respect to the id 
 @app.get("/conversations", response_model=list[ConversationOut])
 async def list_conversations(user_id: str):
 
@@ -68,7 +68,7 @@ async def list_conversations(user_id: str):
         for d in docs
     ]
 
-
+# This part of the code is for getting a specific conversation 
 @app.get("/conversations/{thread_id}/messages")
 async def get_conversation_messages(thread_id: str):
 
@@ -83,7 +83,7 @@ async def get_conversation_messages(thread_id: str):
 
     return result
 
-
+# THis is for deleting a specific Conversation 
 @app.delete("/conversations/{thread_id}")
 async def delete_conversation(thread_id: str):
 
@@ -92,7 +92,7 @@ async def delete_conversation(thread_id: str):
 
     return {"status": "deleted"}
 
-
+# This Endpoint is used for Chatting With Respect to the Reasoning Model 
 @app.post("/chat", response_model=ChatResponse)
 async def chat(payload: ChatRequest):
 
@@ -143,7 +143,7 @@ async def chat(payload: ChatRequest):
 
     return ChatResponse(reply=reply)
 
-
+# this is a health route used for monitoring the render backend by the uptime robot this is to avoid sleeping of the backend 
 @app.get("/health")
 async def health():
     return {"status": "ok"}
